@@ -15,7 +15,7 @@ export class User {
             this._email = props.email;
             this._passwordHash = props.passwordHash;
             this._role = props._role ?? "MEMBER";
-            this._createdAt = props.createdAt;
+            this._createdAt = new Date();
       }
 
       public static create(props: UserProps, id?: string) {
@@ -32,6 +32,10 @@ export class User {
       }
       get role(): string {
             return this._role ?? "MEMBER";
+      }
+
+      get email(): string {
+            return this._email;
       }
 
       changeRole(newRole: UserRoleType): void {
