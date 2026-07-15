@@ -1,5 +1,5 @@
 import { User } from "../../entities/User";
-import { UserRoleType } from "../../interfaces/user";
+import { UserRoleType } from "../../interfaces/user/userEntitie";
 import { BcryptHashProvider } from "../../providers/hashProviders/implementatios/BcryptHashProvider";
 import { IMemoryUserRepository } from "../../repositories/user/CreateUserRepository";
 
