@@ -2,7 +2,7 @@ import { randomUUID } from "crypto";
 import {
       FinancialRecordProps,
       FinancialRecordType,
-} from "../interfaces/financial";
+} from "../interfaces/finance/financialEntitie";
 
 export class FinancialRecord {
       private readonly _id: string;
@@ -19,7 +19,7 @@ export class FinancialRecord {
                         "O valor do registro precisa ser maior que zero",
                   );
             }
-            this._id = props.id ?? randomUUID();
+            this._id = id ?? randomUUID();
             this._type = props.type;
             this._category = props.category;
             this._amount = props.amount;
@@ -59,7 +59,7 @@ export class FinancialRecord {
             this._category = newCategory;
       }
 
-      changeDateEvent(newDate: Date): void {
+      changeDate(newDate: Date): void {
             this._date = newDate;
       }
       changetypeFinancialRecord(newType: FinancialRecordType): void {
