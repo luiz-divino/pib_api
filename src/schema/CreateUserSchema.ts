@@ -6,6 +6,5 @@ export const CreateUserSchema = z.object({
             password: z
                   .string("A senha é obrigatória")
                   .min(6, "A senha precisa ter mais de 6 caracteres"),
-            role: z.enum(["MEMBER", "FINANCE", "ADMIN"]),
       }),
 });
