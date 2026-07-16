@@ -1,26 +1,24 @@
 import { randomUUID } from "crypto";
-import { UserProps, UserRoleType } from "../interfaces/user";
+import { UserProps, UserRoleType } from "../interfaces/user/userEntitie";
 
 export class User {
       private readonly _id: string;
       private _name: string;
       private readonly _email: string;
-      private _passwordHash: string;
+      private _password: string;
       private _role?: UserRoleType;
-      private readonly _createdAt: Date;
 
       private constructor(props: UserProps, id?: string) {
             this._id = id ?? randomUUID();
             this._name = props.name;
             this._email = props.email;
-            this._passwordHash = props.passwordHash;
-            this._role = props._role ?? "MEMBER";
-            this._createdAt = new Date();
+            this._password = props.password;
+            this._role = props.role ?? "MEMBER";
       }
 
       public static create(props: UserProps, id?: string) {
-            const role = props._role ?? "MEMBER";
-            return new User({ _role: role, ...props }, id);
+            const role = props.role ?? "MEMBER";
+            return new User({ role, ...props }, id);
       }
 
       get id(): string {
@@ -36,6 +34,10 @@ export class User {
 
       get email(): string {
             return this._email;
+      }
+
+      get password(): string {
+            return this._password;
       }
 
       changeRole(newRole: UserRoleType): void {
