@@ -13,3 +13,7 @@ export const CreateFinancialSchema = z.object({
             date: z.string("Data do registro é obrigatorio"),
       }),
 });
+
+export type CreateFinancialRecordDTO = z.infer<typeof CreateFinancialSchema> & {
+      registeredby: string;
+};
