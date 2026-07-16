@@ -7,24 +7,24 @@ export class MemoryEventRepository implements IChurchRepository {
       async save(event: ChurchEvent): Promise<void> {
             this.events.push(event);
       }
-      async findbyTitle(title: string): Promise<ChurchEvent[] | null> {
+      async findByTitle(title: string): Promise<ChurchEvent[]> {
             const eventFound = this.events.filter(
                   (item) => item.title === title,
             );
-            return eventFound ?? null;
+            return eventFound;
       }
-      async findbyId(id: string): Promise<ChurchEvent | null> {
+      async findById(id: string): Promise<ChurchEvent | null> {
             const eventFound = this.events.find((item) => item.id === id);
             return eventFound ?? null;
       }
-      async findByDate(date: Date): Promise<ChurchEvent[] | null> {
+      async findByDate(date: Date): Promise<ChurchEvent[]> {
             const eventFound = this.events.filter(
-                  (item) => item.eventDate === date,
+                  (item) => item.eventDate.getTime() === date.getTime(),
             );
-            return eventFound ?? null;
+            return eventFound;
       }
 
-      async findBytitleAndDate(
+      async findByTitleAndDate(
             title: string,
             date: Date,
       ): Promise<ChurchEvent | null> {
