@@ -1,5 +1,5 @@
 import { randomUUID } from "crypto";
-import { ChurchEventProps } from "../interfaces/event";
+import { ChurchEventProps } from "../interfaces/event/event";
 
 export class ChurchEvent {
       private readonly _id: string;
